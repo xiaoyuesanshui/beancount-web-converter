@@ -1,0 +1,48 @@
+defaultMinusAccount: Liabilities:Creditcard:2345
+defaultPlusAccount: Equity:Payable:Temporary:Wechat
+defaultCommissionAccount: Unknown
+defaultCurrency: CNY
+title: 微信
+wechat:
+  rules:
+    - type: 收入 # 微信红包
+      method: /
+      item: /
+      txType: 微信红包
+      targetAccount: Income:Digital:Wechat
+      methodAccount: Assets:Digital:Wechat:USER-A
+
+
+    - type: 收入
+      method: /
+      txType: 转账
+      targetAccount: Income:Digital:Wechat
+      methodAccount: Assets:Digital:Wechat:USER-A
+    
+    - type: 支出
+      method: 零钱
+      methodAccount: Assets:Digital:Wechat:USER-A
+    
+    - type: 收入
+      method: 零钱
+      methodAccount: Assets:Digital:Wechat:USER-A
+
+    # 支付方式账户映射
+    - method: 招商银行储蓄卡(5678)
+      methodAccount: Assets:Bank:Cash:CMB5678
+    
+    - method: 招商银行信用卡(2345)
+      methodAccount: Liabilities:Creditcard:2345
+
+    - peer: 京东商城平台商户
+      targetAccount: Equity:Payable:JD
+
+    
+
+
+    - method: 零钱通
+      fullMatch: true
+      methodAccount: Assets:Digital:Wechat:零钱通
+    - method: 招商银行(1234)
+      fullMatch: true
+      methodAccount: Liabilities:Creditcard:1234

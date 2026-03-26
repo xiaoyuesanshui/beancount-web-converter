@@ -1,0 +1,64 @@
+defaultMinusAccount: Liabilities:Creditcard:1234
+defaultPlusAccount: Equity:Payable:Temporary:Alipay
+defaultCurrency: CNY
+title: 支付宝
+alipay:
+  rules:
+    # 泛匹配结果应当放在前面
+    - type: 收入 # 其他转账收款
+      targetAccount: Income:Digital:Alipay
+      methodAccount: Assets:Alipay
+
+    - type: 收入 # 收款码收款
+      item: 商品
+      targetAccount: Income:Alipay:ShouKuanMa
+      methodAccount: Assets:Alipay
+
+    - peer: 天**
+      targetAccount: Equity:Payable:TianMao
+  
+
+    - method: 余额
+      fullMatch: true
+      methodAccount: Assets:Digital:Alipay
+    - method: 招商银行信用卡(2345)
+      fullMatch: true
+      methodAccount: Liabilities:Creditcard:2345
+    - method: 招商银行储蓄卡(5678)
+      fullMatch: true
+      methodAccount: Assets:Bank:Cash:CMB5678
+
+
+    # 交易类型为其他
+    - type: 其他
+      item: 收益发放
+      methodAccount: Income:Alipay:YuEBao:PnL
+      targetAccount: Assets:Alipay
+    - type: 其他
+      item: 余额宝-单次转入
+      targetAccount: Assets:Alipay
+      methodAccount: Assets:Alipay
+
+    - peer: 基金
+      type: 其他
+      item: 黄金-买入
+      methodAccount: Assets:Alipay
+      targetAccount: Assets:Alipay:Invest:Gold
+    - peer: 基金
+      type: 其他
+      item: 黄金-卖出
+      methodAccount: Assets:Alipay:Invest:Gold
+      targetAccount: Assets:Alipay
+      pnlAccount: Income:Alipay:Invest:PnL
+    - peer: 基金
+      type: 其他
+      item: 买入
+      methodAccount: Assets:Alipay
+      targetAccount: Assets:Alipay:Invest:Fund
+    - peer: 基金
+      type: 其他
+      item: 卖出
+      methodAccount: Assets:Alipay:Invest:Fund
+      targetAccount: Assets:Alipay
+      pnlAccount: Income:Alipay:Invest:PnL
+
