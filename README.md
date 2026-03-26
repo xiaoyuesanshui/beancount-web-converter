@@ -1,3 +1,47 @@
+# 💰 Beancount Web Converter
+
+💡 Acknowledgments / Credits
+
+本项目逻辑参考并使用了 deb-sig/double-entry-generator，感谢其在 Beancount 账单转换逻辑上的启发。
+Built with AI 扣子空间  using Vibe Coding methodology.
+本readme 和git push在gemini的帮助下完成
+
+一个专为 Beancount 用户设计的可视化账单转换工具。通过 AI 辅助开发，适配了私有化部署环境。
+
+
+## ✨ 功能亮点
+- **可视化操作**：告别命令行，直接在网页上完成账单导入与转换。
+- **现代 UI 设计**：基于 `shadcn/ui` 构建，支持亮色/暗色模式，交互丝滑。
+- **极速转换**：沿用了成熟的 Beancount 转换逻辑，确保账单解析的准确性。
+- **开箱即用**：项目内置了示例模板，新手也能快速上手。
+
+## 🛠️ 技术栈
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Language**: TypeScript
+- **Logic**: 核心账单转换逻辑参考/使用deb-sig/double-entry-generator https://github.com/deb-sig/double-entry-generator
+
+## 🚀 快速开始
+
+### 准备工作
+请确保本地已安装 [Node.js](https://nodejs.org/) 以及包管理器 `pnpm`。
+
+
+## 🌟 核心改进 (Why this fork?)
+本项目基于 **扣子 (Coze)** 原始产出进行了深度调优：
+- **自定义端口**：支持通过 `PORT=5001` 环境变量自由切换端口，解决 5000 端口占用问题。
+- **环境适配**：针对 Debian 12 生产环境优化了启动逻辑，移除了不稳定的 Shell 脚本。
+- **UI 定制**：去除了默认的“扣子”标签，改为专属工具标题。
+
+## 🚀 部署步骤 (Debian 12)
+1. **克隆并安装**:
+   ```bash
+   pnpm install
+
+
+#############以下为扣子编程项目原输出的README########
+
 # projects
 
 这是一个基于 [Next.js 16](https://nextjs.org) + [shadcn/ui](https://ui.shadcn.com) 的全栈应用项目，由扣子编程 CLI 创建。
